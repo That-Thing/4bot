@@ -31,7 +31,7 @@ print("Starting Bot")#Itoddlers please get the fuck out.
 @bot.event
 async def on_ready():
     os.system('cls' if os.name == 'nt' else 'clear')
-    await bot.change_presence(game=discord.Game(name='Based and Redpilled | $help', url='https://www.twitch.tv/monstercat',type=1))
+    await bot.change_presence(game=discord.Game(name='Based and Redpilled | 4!help', url='https://www.twitch.tv/monstercat',type=1))
     print("                         .-. .-.")
     print("                        (   |   )")
     print('                      .-.:  |  ;,-.')
@@ -45,7 +45,7 @@ async def on_ready():
 
 @bot.command(pass_context=True)
 async def cls(ctx):#I still have yet to figure out what the keyboard shortcut for clearing the console is on windows. 
-    if ctx.message.author.id == 'Bot owner ID':
+    if ctx.message.author.id == 'Your ID':
         await bot.say("**Console cleared!**")
         os.system('cls' if os.name == 'nt' else 'clear')
         print("clear")
@@ -56,7 +56,7 @@ async def cls(ctx):#I still have yet to figure out what the keyboard shortcut fo
 @bot.command(hidden=True, pass_context=True)
 async def load(ctx, extension):
     """Loads a module."""
-    if ctx.message.author.id == 'Bot owner ID':
+    if ctx.message.author.id == 'Your ID':
         try:
             bot.load_extension(extension)
 
@@ -71,7 +71,7 @@ async def load(ctx, extension):
 @bot.command(hidden=True, pass_context=True)
 async def unload(ctx, extension):
     """Unloads a module."""
-    if ctx.message.author.id == 'Bot owner ID':
+    if ctx.message.author.id == 'Your ID':
         try:
             bot.unload_extension(extension)
 
@@ -86,7 +86,7 @@ async def unload(ctx, extension):
 @bot.command(hidden=True, pass_context=True)
 async def reload(ctx, extension):
     """Reloads a module."""
-    if ctx.message.author.id == 'Bot owner ID':
+    if ctx.message.author.id == 'Your ID':
         try:
 
             bot.unload_extension(extention)
@@ -114,4 +114,4 @@ if __name__ == "__main__":
 
 
 #put your token here
-bot.run('Token')
+bot.run('Bot Token')

@@ -30,19 +30,49 @@ class chan:
                 embed=discord.Embed(description="Post")
                 embed.add_field(name="No.", value=post.post_id, inline=False)#this shit is so fucking annoying
                 embed.add_field(name="Tripcode:", value=post.tripcode, inline=False)
-                embed.add_field(name="Datetime:", value=post.datetime) 
+                embed.add_field(name="Datetime:", value=post.datetime, inline=False) 
                 embed.add_field(name="Name:", value=post.name, inline=True)
                 embed.add_field(name="Subject:", value=post.subject, inline=True)
                 embed.add_field(name="Comment: ",value=post.text_comment, inline=False)
-                if post.has_file==True: #There is probably a better way of doing this, but I genuinly don't give a fuck. 
+                if post.has_file==True: #There is probably a better way of doing this, but I don't give a fuck. 
                     embed.set_image(url=post.file_url)
                     await self.bot.say(embed=embed)
                 else:
                     await self.bot.say(embed=embed)
-                time.sleep(1)   #Uncomment if you don't want the bot spamming the channel and completely ass raping your notifications (it still will but at a slower pace)
+                time.sleep(1)   #Uncomment if you don't want the bot spamming the channel and completely destroying your notifications (it still will but at a slower pace)
             
 
+    @commands.command()
+    async def thread(self, *argv):
+        boardid = ""
+        threadid=""
+        boardid += argv[0]
+        threadid += argv[1]
 
+
+
+        board = basc_py4chan.Board(boardid, https=False, session=None)
+        thread = board.get_thread(threadid)
+        embed=discord.Embed(description="Board: "+"/"+boardid+"/")
+        embed.add_field(name="Url", value=thread.url)
+        embed.add_field(name="Replies",value=len(thread.replies), inline=False)
+        await self.bot.say(embed=embed)
+
+        for post in thread.posts:
+        
+            embed=discord.Embed(description="Post")
+            embed.add_field(name="No.", value=post.post_id, inline=False)
+            embed.add_field(name="Tripcode:", value=post.tripcode, inline=False)
+            embed.add_field(name="Datetime:", value=post.datetime, inline=False) 
+            embed.add_field(name="Name:", value=post.name, inline=True)
+            embed.add_field(name="Subject:", value=post.subject, inline=True)
+            embed.add_field(name="Comment: ",value=post.text_comment, inline=False)
+            if post.has_file==True:
+                embed.set_image(url=post.file_url)
+                await self.bot.say(embed=embed)
+            else:
+                await self.bot.say(embed=embed)
+            time.sleep(1)  
 
 
 

@@ -21,9 +21,10 @@ class help:
         colors = [0xff0000, 0xff8100, 0xfdff00, 0x15ff00, 0x15ff00, 0x0045ff, 0x9600ff, 0xff00b4]
 
         embed = discord.Embed(title="Commands", colour=random.choice(colors))
-        embed.set_author(name='4bot Commands')
-        embed.add_field(name='4!ping', value='Sends a image from the subreddit', inline=False)
-        embed.add_field(name='4!randthread *board*', value='Gets an entire post from a subreddit', inline=False)
+        embed.set_author(name='4chan bot commands Commands')
+        embed.add_field(name='4!ping', value='Pings the bot', inline=False)
+        embed.add_field(name='4!randthread *board*', value='Gets a random thread from a board', inline=False)
+        embed.add_field(name='4!thread *board* *threadID*', value='Gets a specific thread from the thread ID (the numbers in the thread url)', inline=False)
         await self.bot.send_message(author, embed=embed)
 
 
